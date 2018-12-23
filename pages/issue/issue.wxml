@@ -1,0 +1,45 @@
+<!--pages/issue/issue.wxml-->
+<view class='header'>
+  <input type='text' placeholder-class='headerinput' placeholder='商品标题 最多12字' maxlength='12'></input>
+</view>
+
+<!-- 商品描述区 -->
+<view class='direction'>
+  <textarea type='text' placeholder='在这里详细描述一下商品吧...'></textarea>
+  <view class='add_image'>
+    <view class='deleteImg' wx:for='{{imgList}}'>
+      <image src='{{item}}' class='add' bindlongpress="DeleteImg" ></image>
+      <image src='../../assets/images/delete.png' wx:if="{{deleteimg}}" class='image02' catchtap="Delete" data-index="{{index}}"></image>
+    </view>
+
+
+
+    <image wx:if="{{addimage}}" src='../../assets/images/add.png' class='add' bindtap='AddImage'></image>
+  </view>
+  <image wx:if="{{address == ''}}" src='../../assets/images/place.png' class='place' bindtap='ChooseAddress'></image>
+  <text style='font-size : 30rpx' wx:else bindtap='ChooseAddress'>{{address}}</text>
+</view>
+
+
+
+
+<view class='type'>
+  <view class='type_item_wrap'>
+    <text>分类</text>
+    <view>
+      选填
+    </view>
+  </view>
+  <view class='type_item_wrap'>
+    <text>价格</text>
+    <view>
+      选填
+    </view>
+  </view>
+  <view class='type_item_wrap'>
+    <text>店铺地址</text>
+    <view>
+      选填
+    </view>
+  </view>
+</view>

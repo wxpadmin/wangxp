@@ -1,0 +1,41 @@
+<view class="wrap">
+  <view class='islogin' wx:if="{{userInfo.avatarUrl}}">
+    <!-- 获取到用户信息 -->
+    <view class="user">
+      <open-data type="userAvatarUrl" class="userAvatarUrl"></open-data>
+      <open-data type="userNickName"></open-data>
+    </view>
+    <image class='arrow' src='../../assets/images/arrow.png'></image>
+  </view>
+
+      <!-- 未获取到用户信息 -->
+  <button wx:else class="login" bindgetuserinfo='getUserInfo' open-type="getUserInfo">点击登录</button>
+  <view class='tabbar'>
+      <view wx:for='{{tabbarData}}' class='tabbarflexwrap'>
+        <image src='{{item.imgUrl}}'></image>
+        <text>{{item.name}}</text>
+      </view>
+  </view>
+  <view class='func'>
+      <view class='funccontent'>
+        <view class='flexbox'>
+          <image class='reputation' mode="scaleToFill" src='../../assets/images/reputation.png'></image>
+          <text>个人信用</text>
+        </view>
+        <view class='flexbox'>
+          <text style='margin-right :10rpx'>未认证</text>
+          <image class='arrow' src='../../assets/images/arrow.png'></image>
+        </view>
+      </view>
+
+      <view class='funccontent'>
+        <view class='flexbox'>
+          <image class='partner' mode="scaleToFill" src='../../assets/images/partner.png'></image>
+          <text>合作联系</text>
+        </view>
+        <view class='flexbox'>
+          <image class='arrow' src='../../assets/images/arrow.png'></image>
+        </view>
+      </view>
+  </view>
+</view>
