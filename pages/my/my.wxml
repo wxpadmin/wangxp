@@ -37,5 +37,17 @@
           <image class='arrow' src='../../assets/images/arrow.png'></image>
         </view>
       </view>
+
+
+
+      <view class='funccontent'>
+        <view class='flexbox'>
+          <image class='partner' mode="scaleToFill" src='../../assets/images/partner.png'></image>
+          <text>合作联系</text>
+        </view>
+        <view class='flexbox'>
+          <image class='arrow' src='../../assets/images/arrow.png'></image>
+        </view>
+      </view>
   </view>
 </view>

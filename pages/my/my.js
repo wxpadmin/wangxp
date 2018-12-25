@@ -16,23 +16,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData)
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    }else {
-      app.userInfoReadyCallback = res =>{
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    }
+    // wx.request({
+    //   url: 'http://47.104.200.127:8080/wxhy/login/sendCode',
+    //   data : {
+    //     mobile : 13351591816,
+    //     type: 'regist'
+    //   },
+    //   success : (res)=>{
+    //     console.log(res,111)
+    //   },
+    //   fail : (err)=>{
+    //     console.log(err,222)
+    //   }
+    // })
 
 
-    this.setData({
-      tabbarData
-    })
+
+    
+    // console.log(app.globalData)
+    // if (app.globalData.userInfo) {
+    //   this.setData({
+    //     userInfo: app.globalData.userInfo
+    //   })
+    // }else {
+    //   app.userInfoReadyCallback = res =>{
+    //     this.setData({
+    //       userInfo: res.userInfo
+    //     })
+    //   }
+    // }
+    // this.setData({
+    //   tabbarData
+    // })
   },
   getUserInfo (userInfo) {
         if (userInfo.detail.userInfo) {
