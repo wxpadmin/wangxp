@@ -1,4 +1,7 @@
-import { getSetting } from '../../components/js/commmon.js'
+import { 
+  getSetting,
+  Request
+ } from '../../components/js/commmon.js'
 import { tabbarData } from '../../components/data/my_data.js'
 const app = getApp()
 
@@ -17,22 +20,30 @@ Page({
    */
   onLoad: function (options) {
     // wx.request({
-    //   url: 'http://47.104.200.127:8080/wxhy/login/sendCode',
+    //   url: 'http://47.104.200.127:8080/wxhy/login/sendCode1',
     //   data : {
     //     mobile : 13351591816,
-    //     type: 'regist'
+    //     type: 'regist ',
     //   },
-    //   success : (res)=>{
+    //   header : {
+    //     'content-type': 'application/json'
+    //   },
+    //   success : (res) => {
     //     console.log(res,111)
     //   },
-    //   fail : (err)=>{
+    //   fail : (err) => {
     //     console.log(err,222)
     //   }
     // })
 
 
 
-    
+
+    Request( 'GET',"/wxhy/login/sendCode1", { mobile: 13351591816, type: 'regist' },(res)=>{
+      console.log(res,111)
+    },(err)=>{
+      console.log(err,222)
+    })
     // console.log(app.globalData)
     // if (app.globalData.userInfo) {
     //   this.setData({
