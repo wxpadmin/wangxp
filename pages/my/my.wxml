@@ -1,15 +1,11 @@
 <view class="wrap">
-  <view class='islogin' wx:if="{{userInfo.avatarUrl}}">
-    <!-- 获取到用户信息 -->
-    <view class="user">
-      <open-data type="userAvatarUrl" class="userAvatarUrl"></open-data>
-      <open-data type="userNickName"></open-data>
-    </view>
-    <image class='arrow' src='../../assets/images/arrow.png'></image>
+  <!-- 注册登录 -->
+  <view class='login' catchtap='Login'>
+    <text>请登录</text>
   </view>
 
-      <!-- 未获取到用户信息 -->
-  <button wx:else class="login" bindgetuserinfo='getUserInfo' open-type="getUserInfo">点击登录</button>
+
+
   <view class='tabbar'>
       <view wx:for='{{tabbarData}}' class='tabbarflexwrap'>
         <image src='{{item.imgUrl}}'></image>

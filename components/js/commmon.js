@@ -1,4 +1,5 @@
 import host from '../../api/index.js'
+const app = getApp()
 
 // 用户是否授权
 export const getSetting = ()=>{
@@ -16,42 +17,43 @@ export const getSetting = ()=>{
 }
 
 
- //  注册
-// export const Regist = ()=> {
-//    wx.request({
-//       url: '/wxhy/login/sendCode1',
-//       data : {
-//         mobile : 13351591816,
-//         type: 'regist'
-//       },
-//       success : (res)=>{
-//         console.log(res,111)
-//       },
-//       fail : (err)=>{
-//         console.log(err,222)
-//       }
-//     })
-// }
-
-
+ //  请求封装
 export const Request = (method,url,data,SuccessCallback,ErrorCallback)=>{
     wx.request({
       url: host + url,
       data,
       method,
       success : (res)=>{
-        if (res.statusCode == 200) {
+        if (res.statusCode == 200 && res.data.code && res.data.code == 0) {
           //  请求正常
-          console.log('不是200')
-        }else {
           typeof SuccessCallback == 'function' && SuccessCallback(res)
+        }else {
+          // 请求异常
+          typeof ErrorCallback == 'function' && ErrorCallback(res)
         } 
       },
       fail : (err)=> {
-        console.log('-----------')
-        ErrorCallback && ErrorCallback(err)
+        // 网络错误  => 404 页面
+        app._RedirectToError('err')
       }
     })
 }
 
 
+
+
+//  注册验证规则
+export const registrules = {
+  phonerule : function (phonenumber){
+    var reg = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0-1,35678]|18[0-9]|19[89])\d{8}$/;
+    if (!reg.test(phonenumber)) {
+      // 手机号错误
+      return false
+    }else {
+      return true
+    }
+
+
+  }
+
+}

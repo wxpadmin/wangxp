@@ -1,0 +1,46 @@
+<!--pages/login/login.wxml-->
+<view class='wrap'>
+  <form bindsubmit='FormSubmit'>
+    <input 
+        class='phonenumber' 
+        type='number' 
+        name='mobile'
+        placeholder-class="placeholderstyle" 
+        placeholder='请输入手机号' 
+        maxlength='11'
+        bindinput='GetPhone'
+        />
+
+    <input 
+      class='nickname' 
+      placeholder-class="placeholderstyle" 
+      placeholder='请输入用户名'
+      type='text'
+      name='nickName'
+    />
+
+
+    <input 
+      class='password' 
+      placeholder-class="placeholderstyle" 
+      placeholder='请输入密码'
+      type='password'
+      name='password'
+    />
+
+
+  <view class='codewrap'>
+    <input 
+      class='code' 
+      placeholder-class="placeholderstyle" 
+      placeholder='验证码'
+      type='code'
+      name='code'
+      maxlength='6'
+    />
+    <view class='btn' catchtap='GetCode'>{{time}}</view>
+
+  </view>
+  <button class='submit' type="primary" form-type='submit'>提交</button>
+  </form>
+</view>

@@ -1,0 +1,3 @@
+<!--pages/error/error.wxml-->
+<image src='../../assets/images/error.png'></image>
+<text catchtap='goback'>重新加载</text>
