@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view class='wrap'>
+  <view class='header'>
+      <view class="{{idx == index ? 'clickstyle' : ''}}" wx:for="{{loginway}}" wx:key="item" catchtap='ChangeTab' id='{{item.name}}' data-index='{{index}}'>{{item.belongname}}</view>
+  </view>
+
+  <!-- 登陆 -->
+  <view class='content'>
+    <input placeholder='请输入手机号'  placeholder-class='placeholderstyle'/>
+    <view class='codewrap' wx:if='{{idx == 0}}'>
+      <input placeholder='验证码' placeholder-class='placeholderstyle'/>
+      <view>获取验证码</view>
+    </view>
+    <input wx:else placeholder='请输入密码' placeholder-class='placeholderstyle'/>
+    <button type='primary'>登陆</button>
+  </view>
+
+  <view class='bottom'>
+    <view>忘记密码?</view>
+    <view catchtap='GoRegister'>去注册</view>
+  </view>
+
+</view>

@@ -24,8 +24,8 @@
       class='password' 
       placeholder-class="placeholderstyle" 
       placeholder='请输入密码'
-      type='password'
       name='password'
+      password=true
     />
 
 

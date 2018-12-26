@@ -19,12 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 注册
-    // Request( 'GET',"/wxhy/login/sendCode1", { mobile: 13351591816, type: 'regist' },(res)=>{
-    //   console.log(res,111)
-    // },(err)=>{
-    //   console.log(err,222)
-    // })
+
   },
 
 

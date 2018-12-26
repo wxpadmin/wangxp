@@ -11,5 +11,16 @@ export const tabbarData = [
       name: '收藏',
       imgUrl: '../../assets/images/collect.png'
     }
+]
 
+
+export const loginway = [
+  {
+    name : 'message',
+    belongname : '短信登陆'
+  },
+  {
+    name : 'password',
+    belongname : '密码登陆'
+  }
 ]
