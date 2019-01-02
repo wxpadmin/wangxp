@@ -24,7 +24,7 @@ export const Request = (method,url,data,SuccessCallback,ErrorCallback)=>{
       data,
       method,
       success : (res)=>{
-        if (res.statusCode == 200 && res.data.code && res.data.code == 0) {
+        if (res.statusCode == 200 && res.data.code == 0) {
           //  请求正常
           typeof SuccessCallback == 'function' && SuccessCallback(res)
         }else {

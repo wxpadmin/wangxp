@@ -2,6 +2,20 @@ const app = getApp()
 
 Page({
 
+
+  // onShow : function () {
+  //   const value = wx.getStorageSync('phonenumber')
+  //   if (value) {
+      
+  //   }else {
+  //     wx.redirectTo({
+  //       url: '../register/register',
+  //     })
+  //   }
+  // },
+
+
+
   /**
    * 页面的初始数据
    */

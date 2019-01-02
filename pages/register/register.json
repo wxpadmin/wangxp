@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "注册"
+  "navigationBarTitleText": "会员登录",
+  "usingComponents": {
+    "pop-up" : "../../components/popup/popup"
+  }
 }

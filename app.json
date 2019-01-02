@@ -1,18 +1,18 @@
 {
   "pages":[
+    "pages/issue/issue",
     "pages/register/register",
-    "pages/index/index",
     "pages/login/login",
     "pages/my/my",
+    "components/popup/popup",
+    "pages/index/index",
     "pages/error/error",
-    "pages/detail/detail",   
-    "pages/issue/issue"
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#DF250C",
+    "navigationBarTextStyle": "#fff",
     "onReachBottomDistance": ""
   },
   "tabBar": {

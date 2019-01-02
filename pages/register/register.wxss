@@ -1,36 +1,71 @@
-/* pages/login/login.wxss */
-
 .wrap{
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 50rpx
+  height: 100%;
+  padding: 100rpx 32rpx 0;
+  box-sizing: border-box
 }
-.placeholderstyle{
-  color: #ccc;
-}
-.phonenumber,.nickname,.password {
-  height: 150rpx
-}
-.code {
-  width: 200rpx;
-  height: 150rpx;
-}
-.codewrap{
-  width: 500rpx;
-  height: 150rpx;
+.phone{
   display: flex;
-  justify-content: space-around;
-  align-items: center
+  align-items: center;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid rgb(231,231,231)
 }
-.btn{
-  width: 200rpx;
-  text-align: center;
-  line-height: 50rpx;
-  border-radius: 20rpx;
-  border: 1rpx solid red;
-  padding: 10rpx 20rpx
+.phone>text,.codewrap >text{
+  display: block;
+  flex-shrink : 0;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: rgb(51, 51, 51);
+  font-size: 32rpx;
+  font-family: PingFang;
+  margin-right: 58rpx
 }
 
+.placeholderstyle{
+  color: rgb(102, 102, 102)
+}
+
+.phone>input,.codewrap >input{
+  height: 30rpx;
+  color: rgb(51, 51, 51);
+  font-size: 32rpx
+}
+
+.codewrap {
+  padding: 40rpx 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(231,231,231)
+}
+
+.codebtn{
+  width: 180rpx;
+  height: 68rpx;
+  border: 1rpx solid rgb(231, 231, 231);
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 68rpx
+}
+
+.codebtn_unclick{
+  background: #fff;
+  color: rgb(223, 37, 12);
+  font-size: 26rpx
+}
+
+
+.codebtn_click{
+  background-color: rgb(247, 247, 247);
+  font-size: 24rpx;
+  color: rgb(231, 231, 231)
+}
+
+
 .submit{
-  margin-top: 30rpx
+  background: rgb(223, 37, 12);
+  color: #fff;
+  font-size: 36rpx;
+  height: 90rpx;
+  margin-top: 60rpx
 }

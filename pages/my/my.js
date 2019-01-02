@@ -25,7 +25,7 @@ Page({
 
   Login : function () {
     wx.redirectTo({
-      url: '../login/login',
+      url: '../register/register',
     })
   }
 })

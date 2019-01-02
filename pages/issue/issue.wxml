@@ -1,10 +1,9 @@
-<!--pages/issue/issue.wxml-->
-<view class='header'>
+<!-- <view class='header'>
   <input type='text' placeholder-class='headerinput' placeholder='商品标题 最多12字' maxlength='12'></input>
-</view>
+</view> -->
 
 <!-- 商品描述区 -->
-<view class='direction'>
+<!-- <view class='direction'>
   <textarea type='text' placeholder='在这里详细描述一下商品吧...'></textarea>
   <view class='add_image'>
     <view class='deleteImg' wx:for='{{imgList}}'>
@@ -42,4 +41,17 @@
       选填
     </view>
   </view>
+</view> -->
+
+
+<view class='wrap'>
+  <view class='header'>商品标题 最多12字</view>
+  <view class='title'>
+    <input placeholder='加个商品标题吧~' placeholder-style="color:rgb(153,153,153);font-size:32rpx"/>
+  </view>
+
+
+
 </view>
+
+

@@ -6,9 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time : '获取验证码',
-    timeLock : false,
-    phonenumber : ''
+    time : '获取动态码',
+    timeLock : true,
+    phonenumber : '',
+    popshow : false
   },
 
   /*
@@ -28,31 +29,46 @@ Page({
   */
 
   GetCode () {
-    if (this.data.timeLock || this.data.length != 11) {
-      console.log('请输入正确的手机号')
+    if (!this.data.timeLock) {
+      return
+    }
+    if (this.data.phonenumber.length != 11) {
+      wx.showToast({
+        title: '您输入的手机号有误',
+        icon: 'none',
+        duration: 2000
+      })
       return
     }
     let timer = 60
     /*
      注册
     */
-    Request( 'GET',"/wxhy/login/sendCode1", { mobile: 13351591816, type: 'regist' },(res)=>{
-      console.log(res,111)
+    Request('GET', "/wxhy/login/sendCode", { mobile: this.data.phonenumber, type: 'regist' },(res)=>{
+      wx.showToast({
+        title: '发送成功',
+        icon: 'success',
+        duration: 2000
+      })
     },(err)=>{
-      console.log(err,222)
+      wx.showToast({
+        title: '出错啦,请重试',
+        icon: 'none',
+        duration: 2000
+      })
     })
     let interval = setInterval(()=>{
       timer --
       this.setData({
-        time: timer,
-        timeLock : true
+        time: timer + "秒后重新发",
+        timeLock : false
       })    
       if (timer <= 0) {
         clearInterval(interval)
         timer = 60
         this.setData({
-          time: '获取验证码',
-          timeLock : false
+          time: '获取动态码',
+          timeLock : true
         })
       }
     },1000)
@@ -64,15 +80,13 @@ Page({
     提交表单
     表单提交前验证信息，验证顺序自上而下
    */
-
   FormSubmit (e) {
-    var util = require('../../utils/util.js') 
     function verifyrule () {
       return new Promise((resolve,reject)=>{
         if (e.detail.value.mobile.length == 11 || registrules.phonerule(e.detail.value.mobile)) {
          resolve()
        }else {
-         reject('请输入正确的手机号')
+          reject('您输入的手机号有误')
        }
       })
     }
@@ -82,20 +96,6 @@ Page({
         return Promise.resolve(e.detail.value);
       })
       .then((res)=>{
-        if (res.nickName.length == 5) {
-          return Promise.resolve(e.detail.value)
-        }else {
-          return Promise.reject('请输入正确的用户名')
-        }
-      })
-      .then((res)=>{
-        if (res.password.length == 6) {
-          return Promise.resolve(e.detail.value)
-        }else {
-          return Promise.reject('请输入正确的密码')
-        }
-      })
-      .then((res)=>{
         if (res.code.length == 6) {
           return Promise.resolve(e.detail.value)
         }else {
@@ -103,28 +103,33 @@ Page({
         }
       })
       .then((res)=>{
-        res.password = util.sha1(res.password)
-        Request('GET', '/wxhy/login/register', res, (data) => {
+        res.mobile = Number(res.mobile)
+        Request('POST', '/wxhy/login/register', res, (data) => {
           /*
             注册成功
           */
-          console.log(data.data.message)
+          wx.showToast({
+            title: data.data.message,
+            icon: 'none',
+            duration: 2000
+          })
        },(err)=>{
          /*
             注册失败
           */
-         console.log(err.data.message)
+         wx.showToast({
+           title: err.data.message,
+           icon: 'none',
+           duration: 2000
+         })
        })
       })
       .catch((err)=>{
-        console.log(err)
+        wx.showToast({
+          title: err,
+          icon: 'none',
+          duration: 2000
+        })
       })
-
-
-
-
-
-
-
   }
 })
