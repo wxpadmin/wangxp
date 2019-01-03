@@ -1,57 +1,79 @@
-<!-- <view class='header'>
-  <input type='text' placeholder-class='headerinput' placeholder='商品标题 最多12字' maxlength='12'></input>
-</view> -->
-
-<!-- 商品描述区 -->
-<!-- <view class='direction'>
-  <textarea type='text' placeholder='在这里详细描述一下商品吧...'></textarea>
-  <view class='add_image'>
-    <view class='deleteImg' wx:for='{{imgList}}'>
-      <image src='{{item}}' class='add' bindlongpress="DeleteImg" ></image>
-      <image src='../../assets/images/delete.png' wx:if="{{deleteimg}}" class='image02' catchtap="Delete" data-index="{{index}}"></image>
-    </view>
-
-
-
-    <image wx:if="{{addimage}}" src='../../assets/images/add.png' class='add' bindtap='AddImage'></image>
-  </view>
-  <image wx:if="{{address == ''}}" src='../../assets/images/place.png' class='place' bindtap='ChooseAddress'></image>
-  <text style='font-size : 30rpx' wx:else bindtap='ChooseAddress'>{{address}}</text>
-</view>
-
-
-
-
-<view class='type'>
-  <view class='type_item_wrap'>
-    <text>分类</text>
-    <view>
-      选填
-    </view>
-  </view>
-  <view class='type_item_wrap'>
-    <text>价格</text>
-    <view>
-      选填
-    </view>
-  </view>
-  <view class='type_item_wrap'>
-    <text>店铺地址</text>
-    <view>
-      选填
-    </view>
-  </view>
-</view> -->
-
-
 <view class='wrap'>
   <view class='header'>商品标题 最多12字</view>
+
+  <!-- 添加商品标题 -->
   <view class='title'>
-    <input placeholder='加个商品标题吧~' placeholder-style="color:rgb(153,153,153);font-size:32rpx"/>
+    <input maxlength='12' placeholder='加个商品标题吧~' placeholder-style="color:rgb(153,153,153);font-size:32rpx" />
+  </view>
+
+  <!-- 添加商品描述 -->
+  <view class='discribe'>
+    <textarea maxlength='60' placeholder='添加您的商品描述吧~' placeholder-style="color:rgb(203,203,203);font-size:28rpx" />
+  </view>
+
+
+  <!-- 添加商品图片 -->
+  <view class='addimage'>
+    <view class='deleteImg' wx:for='{{imgList}}'>
+      <image src='{{item}}' class='add' bindlongpress="DeleteImg"></image>
+      <view class='deletewrap' wx:if="{{deleteimg}}" catchtap="Delete">
+        <image src='../../assets/images/delete.png' data-num="{{index}}" class='delete'></image>
+      </view>
+    </view>
+    
+    <view wx:if="{{addimage}}" class='addimagebg'>
+      <image src='../../assets/images/add.png'bindtap='AddImage'></image>
+    </view>
   </view>
 
 
 
+  <!-- 店铺地址 -->
+    <view class='address'>
+      <view class='addresswrap'>
+        <image wx-if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
+      <text wx-else>{{address}}</text>
+      </view>
+    </view>
+
+
+
+    <!-- 详细信息 -->
+    <view class='detail'>
+    <!-- 分类 -->
+      <view class='classify'>
+        <view class='leftside'>
+          <image src='../../assets/images/classify.png'></image>
+          <text>分类</text>
+        </view>
+        <view class='rightside'>
+          <picker range="{{classifyarr}}" value="3" bindchange="ChooseType">
+            <text class='choosetype'>{{classifitem}}</text>
+          </picker>
+        </view>
+      </view>
+
+    <!-- 价位 -->
+      <view class='price'>
+        <view class='leftside'>
+          <image src='../../assets/images/price.png'></image>
+          <text>价位</text>
+        </view>
+        <view class='rightside'>
+          <view class='minprice'>
+            <text>￥</text>
+            <input type='number'></input>
+          </view>
+          <text class='priceicon'>~</text>
+          <view class='maxprice'>
+            <text>￥</text>
+            <input type='number'></input>
+          </view>
+        </view>
+
+
+
+      </view>
+
+    </view>
 </view>
-
-

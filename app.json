@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/issue/issue",
     "pages/register/register",
     "pages/login/login",
+    "pages/issue/issue",
     "pages/my/my",
     "components/popup/popup",
     "pages/index/index",

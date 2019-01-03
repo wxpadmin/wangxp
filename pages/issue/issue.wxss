@@ -11,8 +11,157 @@
   font-size: 26rpx;
   color: rgb(243, 103, 34)
 }
+
+
+/* 商品标题 */
 .title{
   width: 100%;
   padding: 28rpx 32rpx 40rpx;
   box-sizing: border-box 
+}
+.title>input{
+  font-size: 32rpx
+}
+
+
+/* 商品描述 */
+.discribe{
+  width: 100%;
+  padding-left: 42rpx;
+  box-sizing: border-box;
+  padding-bottom: 96rpx;
+}
+.discribe>textarea{
+  font-size: 28rpx;
+  max-height: 130rpx
+}
+
+/* 添加图片 */
+.addimage{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap : wrap;
+  margin-bottom: 166rpx;
+}
+
+.deleteImg:nth-of-type(3n-1){
+  margin-right: 50rpx;
+}
+.deleteImg:nth-of-type(3n-2){
+  margin-right: 50rpx;
+}
+
+.deleteImg{
+  width: 196rpx;
+  height: 196rpx;
+  display: flex;
+  margin-bottom: 30rpx;
+  position: relative
+}
+.add{
+  width: 196rpx;
+  height: 196rpx;
+  flex-shrink : 0
+}
+.deletewrap{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  flex-shrink : 0
+}
+.deletewrap>image{
+  width: 14rpx;
+  height: 14rpx;
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx
+}
+.addimagebg{
+  width: 196rpx;
+  height: 196rpx;
+  flex-shrink : 0;
+  background: rgb(241, 241, 241);
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.addimagebg>image{
+  width: 64rpx;
+  height: 64rpx
+}
+
+
+/* 店铺地址 */
+.address{
+  width: 100%;
+  padding: 0 32rpx;
+  box-sizing: border-box
+}
+.addresswrap{
+  width: 100%;
+  padding-bottom: 34rpx;
+  border-bottom: 1rpx solid rgb(231, 231, 231)
+}
+.addresswrap>image{
+  width: 206rpx;
+  height: 48rpx
+}
+.addresswrap>text{
+  font-size: 30rpx
+}
+
+
+/* 详细信息 */
+.detail{
+  width: 100%;
+  padding: 0 32rpx;
+  box-sizing: border-box
+}
+.detail>view{
+  width: 100%;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+  height: 114rpx
+}
+.classify,.price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.leftside,.rightside{
+  height: 100%;
+  display: flex;
+  align-items: center
+}
+.leftside>image{
+  height: 34rpx;
+  width: 34rpx;
+  margin-right: 26rpx
+}
+.leftside>text{
+  font-size: 40rpx;
+  color: rgb(51, 51, 51)
+}
+.choosetype{
+  font-size: 32rpx;
+  color: rgb(223, 37, 12)
+}
+
+
+
+.minprice,.maxprice{
+  width: 196rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  background: rgb(247, 247, 247);
+  border: 1rpx solid rgb(231, 231, 231)
+}
+
+.priceicon{
+  margin: 0 24rpx
 }

@@ -1,4 +1,7 @@
 const app = getApp()
+import { classifyarr } from '../../components/data/my_data.js' 
+
+
 
 Page({
 
@@ -20,10 +23,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-      imgList : [],
-      addimage : true,
-      address : '',
-      deleteimg : false
+      imgList : [],  // 上传商品图列表
+      addimage : true,   // 是否能继续添加商品图
+      address : '',      //  商家地址
+      deleteimg : false,      //  是否长按显示删除商品图
+      classifyarr: classifyarr,   // 类别列表
+      classifitem: '请选择 >'
   },
 
   // 添加图片
@@ -34,7 +39,7 @@ Page({
     })
     const imgList = this.data.imgList
     wx.chooseImage({
-      count: 3,
+      count: 6,
       sizeType: 'compressed',
       success: (res) => {
         res.tempFilePaths.forEach((item)=>{
@@ -43,7 +48,7 @@ Page({
         this.setData({
           imgList
         })
-        if (this.data.imgList.length >= 3) {
+        if (this.data.imgList.length >= 6) {
           this.setData({
             addimage: false
           })
@@ -57,7 +62,6 @@ Page({
     var _this = this
     wx.chooseLocation({
       success: function(res) {
-        console.log(res)
         _this.setData({
           address : res.address + res.name
         })
@@ -77,11 +81,11 @@ Page({
   // 点击减号删除按钮
   Delete : function (e) {
     let imgList = this.data.imgList
-    imgList.splice(e.target.dataset.index,1)
+    imgList.splice(e.target.dataset.num,1)
     this.setData({
       imgList
     })
-    if (this.data.imgList.length < 3) {
+    if (this.data.imgList.length < 6) {
       this.setData({
         addimage: true
       })
@@ -96,4 +100,12 @@ Page({
       addimage: true,
     })
   },
+
+
+  // 选择类别
+  ChooseType : function (e) {
+    this.setData({
+      classifitem: classifyarr[e.detail.value]
+    })
+  }
 })
