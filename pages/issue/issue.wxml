@@ -32,7 +32,10 @@
     <view class='address'>
       <view class='addresswrap'>
         <image wx-if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
-      <text wx-else>{{address}}</text>
+      <view class='chooseadd'>
+        <image src='../../assets/images/chooseaddress.png'></image>
+      
+      </view>
       </view>
     </view>
 

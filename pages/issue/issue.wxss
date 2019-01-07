@@ -114,6 +114,20 @@
 .addresswrap>text{
   font-size: 30rpx
 }
+.chooseadd{
+  height: 47rpx;
+  background: rgb(247, 247, 247);
+  border: 1rpx solid rgb(231, 231, 231)
+}
+.chooseadd>image{
+  width: 24rpx;
+  height: 28rpx
+}
+
+
+
+
+
 
 
 /* 详细信息 */

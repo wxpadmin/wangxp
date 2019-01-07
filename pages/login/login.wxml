@@ -20,4 +20,8 @@
     <view catchtap='GoRegister'>去注册</view>
   </view>
 
+  <contact-button
+    type="default-light" 
+  ></contact-button> 
+
 </view>

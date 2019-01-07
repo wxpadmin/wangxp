@@ -3,7 +3,7 @@
   <view class="header">
     <image src="../../assets/images/search.png" class="search"></image>
     <input type="text" placeholder='搜索' placeholder-class="headerinputclass"/>
-    <image src="../../assets/images/apply.png" class='apply'></image>
+    <!-- <image src="../../assets/images/apply.png" class='apply'></image> -->
   </view>
 
   <view class='scrollview'>
@@ -11,12 +11,13 @@
       <view class="scroll-view-item {{clickitemstyle == index ? 'pink' : ''}}"  wx:for="{{scrollitem}}" id="{{index}}" catchtap='chooseitem'>{{item}}</view>
     </scroll-view>
   </view>
+  
 
 
   <view class='content'>
     <view class='con_item' catchtap='GoDetail'>
       <view class='con_item_user'>
-        <image src='../../assets/images/avatarUrl.png'></image>
+        <!-- <image src='../../assets/images/avatarUrl.png'></image> -->
         <view>
           <text class='name'>女装童装一手货源厂家直销</text>
           <text class='area'>南京市</text>

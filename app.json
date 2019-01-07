@@ -1,11 +1,11 @@
 {
   "pages":[
-    "pages/register/register",
-    "pages/login/login",
     "pages/issue/issue",
+    "pages/login/login",
+    "pages/index/index",
+    "pages/register/register",
     "pages/my/my",
     "components/popup/popup",
-    "pages/index/index",
     "pages/error/error",
     "pages/detail/detail"
   ],

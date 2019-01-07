@@ -29,9 +29,7 @@ Page({
 
   // 去注册
   GoRegister () {
-    wx.redirectTo({
-      url: '../register/register',
-    })
+    
   }
 
 })
