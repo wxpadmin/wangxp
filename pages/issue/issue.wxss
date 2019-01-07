@@ -117,7 +117,12 @@
 .chooseadd{
   height: 47rpx;
   background: rgb(247, 247, 247);
-  border: 1rpx solid rgb(231, 231, 231)
+  border: 1rpx solid rgb(231, 231, 231);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 24rpx;
+  box-sizing: border-box;
 }
 .chooseadd>image{
   width: 24rpx;

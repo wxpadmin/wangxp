@@ -31,11 +31,10 @@
   <!-- 店铺地址 -->
     <view class='address'>
       <view class='addresswrap'>
-        <image wx-if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
-      <view class='chooseadd'>
-        <image src='../../assets/images/chooseaddress.png'></image>
-      
-      </view>
+        <image  wx:if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
+        <view class='chooseadd' wx:else>
+          <image src='../../assets/images/chooseaddress.png'></image>
+        </view>
       </view>
     </view>
 
