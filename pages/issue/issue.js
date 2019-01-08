@@ -28,7 +28,9 @@ Page({
       address : '',      //  商家地址
       deleteimg : false,      //  是否长按显示删除商品图
       classifyarr: classifyarr,   // 类别列表
-      classifitem: '请选择 >'
+      classifitem: '请选择',
+      minchangeprice : false,
+      maxchangeprice: false,  
   },
 
   // 添加图片
@@ -63,7 +65,7 @@ Page({
     wx.chooseLocation({
       success: function(res) {
         _this.setData({
-          address : res.address + res.name
+          address : res.address.split('市')[0]
         })
       },
     })
@@ -107,5 +109,43 @@ Page({
     this.setData({
       classifitem: classifyarr[e.detail.value]
     })
-  }
+  },
+
+  // 填写价格
+  ChangePrice: function (event) {
+    // console.log(event.currentTarget.dataset.index)
+    if (event.currentTarget.dataset.index == 1) {
+      this.setData({
+        minchangeprice: true
+      })
+    }else {
+      this.setData({
+        maxchangeprice: true
+      })
+    }
+  },
+  //价格填写完成
+  ChangedPrice : function (event) {
+    if (event.currentTarget.dataset.index == 1) {
+      this.setData({
+        minchangeprice: false
+      })
+    } else {
+      this.setData({
+        maxchangeprice: false
+      })
+    }
+  },
+
+
+
+  // 重新选择地址
+  DeleteAddress : function () {
+    this.setData({
+      address : ''
+    })
+  },
+
+
+  
 })

@@ -1,11 +1,7 @@
-<view class="wrap">
-  <!-- 注册登录 -->
+<!-- <view class="wrap">
   <view class='login' catchtap='Login'>
     <text>请登录</text>
   </view>
-
-
-
   <view class='tabbar'>
       <view wx:for='{{tabbarData}}' class='tabbarflexwrap'>
         <image src='{{item.imgUrl}}'></image>
@@ -33,9 +29,6 @@
           <image class='arrow' src='../../assets/images/arrow.png'></image>
         </view>
       </view>
-
-
-
       <view class='funccontent'>
         <view class='flexbox'>
           <image class='partner' mode="scaleToFill" src='../../assets/images/partner.png'></image>
@@ -46,4 +39,29 @@
         </view>
       </view>
   </view>
+</view> -->
+
+<view class='wrap'>
+  <!-- 用户 -->
+  <view class='user'>
+    <view class='user_left'>
+      <view class='user_left_avatar'>
+        <image src='../../assets/images/beauty.jpg'></image>
+      </view>
+      <view class='user_left_userinfo'>
+        <text>昵称</text>
+        <text>ID : 313231</text>
+        <image src='../../assets/images/openedmembers.png'></image>
+      </view>
+    </view>
+    <view class='user_right'>
+      <image src="../../assets/images/certification.png"></image>
+    </view>
+  </view>
+
+  <view class='navigation'>
+    
+  </view>
+
+
 </view>

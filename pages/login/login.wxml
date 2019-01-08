@@ -24,4 +24,6 @@
     type="default-light" 
   ></contact-button> 
 
+
+  <input placeholder='点我' type='number'  bindfocus='clickme'/>
 </view>

@@ -34,6 +34,8 @@
         <image  wx:if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
         <view class='chooseadd' wx:else>
           <image src='../../assets/images/chooseaddress.png'></image>
+          <view>{{address}}</view>
+          <image class='deleteaddress' src='../../assets/images/deleteaddress.png' catchtap='DeleteAddress'></image>
         </view>
       </view>
     </view>
@@ -51,6 +53,7 @@
         <view class='rightside'>
           <picker range="{{classifyarr}}" value="3" bindchange="ChooseType">
             <text class='choosetype'>{{classifitem}}</text>
+            <image class='choosetypearrow' src='../../assets/images/choosetype.png'></image>
           </picker>
         </view>
       </view>
@@ -62,14 +65,14 @@
           <text>价位</text>
         </view>
         <view class='rightside'>
-          <view class='minprice'>
+          <view class="minprice {{minchangeprice ? 'changeprice' : 'notchangeprice'}}">
             <text>￥</text>
-            <input type='number'></input>
+            <input type='number' data-index="1" bindfocus="ChangePrice" bindblur='ChangedPrice'/>
           </view>
           <text class='priceicon'>~</text>
-          <view class='maxprice'>
+          <view class="maxprice {{maxchangeprice ? 'changeprice' : 'notchangeprice'}}">
             <text>￥</text>
-            <input type='number'></input>
+            <input type='number' data-index="2"  bindfocus="ChangePrice" bindblur='ChangedPrice'/>
           </view>
         </view>
 

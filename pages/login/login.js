@@ -27,6 +27,10 @@ Page({
   },
 
 
+  clickme : function () {
+    console.log(11)
+  },
+
   // 去注册
   GoRegister () {
     

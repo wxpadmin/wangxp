@@ -109,26 +109,45 @@
 }
 .addresswrap>image{
   width: 206rpx;
-  height: 48rpx
+  height: 48rpx;
+  display: block
 }
 .addresswrap>text{
   font-size: 30rpx
 }
 .chooseadd{
-  height: 47rpx;
+  height: 48rpx;
+  display: inline-block;
   background: rgb(247, 247, 247);
   border: 1rpx solid rgb(231, 231, 231);
   border-radius: 20rpx;
-  display: flex;
-  align-items: center;
   padding-left: 24rpx;
   box-sizing: border-box;
 }
 .chooseadd>image{
   width: 24rpx;
-  height: 28rpx
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  height: 100%;
+  margin-right: 18rpx;
+  float: left
 }
-
+.chooseadd>view{
+  height: 48rpx;
+  line-height: 47rpx;
+  margin-right: 42rpx;
+  font-size: 26rpx;
+  color: rgb(13,102,154);
+  font-family: PingFang;
+  float: left
+}
+.chooseadd>.deleteaddress{
+  width: 14rpx;
+  margin-right: 20rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+  height: 100%;
+}
 
 
 
@@ -167,9 +186,15 @@
 }
 .choosetype{
   font-size: 32rpx;
-  color: rgb(223, 37, 12)
+  color: rgb(223, 37, 12);
+  vertical-align: middle
 }
-
+.choosetypearrow{
+  width: 17rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  margin-left: 15rpx
+}
 
 
 .minprice,.maxprice{
@@ -177,10 +202,38 @@
   height: 72rpx;
   display: flex;
   align-items: center;
-  background: rgb(247, 247, 247);
-  border: 1rpx solid rgb(231, 231, 231)
+}
+.minprice>text,.maxprice>text{
+  font-size: 32rpx;
+  font-weight: 700
+}
+.minprice>input,.maxprice>input{
+  font-size: 42rpx;
+  font-weight: 700
 }
 
 .priceicon{
   margin: 0 24rpx
+}
+
+.notchangeprice {
+  background: rgb(247, 247, 247);
+  border: 1rpx solid rgb(231, 231, 231)
+}
+.notchangeprice>text{
+  color: black
+}
+.notchangeprice>input{
+  color: black
+}
+
+.changeprice {
+  background: rgb(253, 237, 235);
+  border: 1rpx solid rgb(243, 103, 34)
+}
+.changeprice>text{
+  color: rgb(223, 37, 12);
+}
+.changeprice>input{
+  color: rgb(223, 37, 12);
 }
