@@ -143,8 +143,8 @@ page {
 .navigation{
   width: 690rpx;
   height: 204rpx;
-  box-shadow: 0 0 30rpx rgba(175,27,8,0.4);
-  margin:  -115rpx auto 0;
+  box-shadow: 0 0 30rpx rgba(175,27,8,0.1);
+  margin:  -130rpx auto 0;
   background: #fff;
-  border-radius: 20rpx
+  border-radius: 10rpx
 }
