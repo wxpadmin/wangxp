@@ -1,12 +1,17 @@
 const app = getApp()
 import { classifyarr } from '../../components/data/my_data.js' 
-
+var QQMapWX = require('../../components/js/qqmap-wx-jssdk.min.js')
+var qqmapsdk;
 
 
 Page({
 
 
-  // onShow : function () {
+  onShow : function () {
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'BF6BZ-OEA3F-N3GJB-JG37W-TOFI6-W2BRA'
+    });
   //   const value = wx.getStorageSync('phonenumber')
   //   if (value) {
       
@@ -15,7 +20,7 @@ Page({
   //       url: '../register/register',
   //     })
   //   }
-  // },
+  },
 
 
 
@@ -26,7 +31,6 @@ Page({
       imgList : [],  // 上传商品图列表
       addimage : true,   // 是否能继续添加商品图
       address : '',      //  商家地址
-      deleteimg : false,      //  是否长按显示删除商品图
       classifyarr: classifyarr,   // 类别列表
       classifitem: '请选择',
       minchangeprice : false,
@@ -35,10 +39,6 @@ Page({
 
   // 添加图片
   AddImage : function () {
-    // 添加图片时清除删除状态
-    this.setData({
-      deleteimg: false
-    })
     const imgList = this.data.imgList
     wx.chooseImage({
       count: 6,
@@ -61,24 +61,40 @@ Page({
 
   // 选择地址
   ChooseAddress : function () {
+    wx.getSetting({
+      success : function (res) {
+        if (res.authSetting['scope.userLocation'] == false) {
+          wx.openSetting({
+            fail : function (err) {
+              return
+            }
+          })
+        }
+      },
+      fail : function (err) {
+          return
+      }
+    })
     var _this = this
-    wx.chooseLocation({
-      success: function(res) {
-        _this.setData({
-          address : res.address.split('市')[0]
+    wx.getLocation({
+      success: function (res) {
+        qqmapsdk.reverseGeocoder({
+          location : {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success : function (res) {
+            _this.setData({
+              address: res.result.address_component.city
+            })
+          },
+          fail : function (err) {
+            console.log(err)
+          }
         })
       },
     })
   },
-
-
-  // 长按图片执行删除操作
-  DeleteImg : function (e) {
-    this.setData({
-      deleteimg: true
-    })
-  },
-
 
   // 点击减号删除按钮
   Delete : function (e) {

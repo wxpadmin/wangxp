@@ -2,7 +2,7 @@ import {
   getSetting,
   Request
  } from '../../components/js/commmon.js'
-import { tabbarData } from '../../components/data/my_data.js'
+import { actionList } from '../../components/data/my_data.js'
 const app = getApp()
 
 Page({
@@ -12,7 +12,10 @@ Page({
    */
   data: {
     userInfo: {},
-    tabbarData
+    messagecount : 2,  // 消息数量
+    registercount : 100,  // 发布数量
+    collectcount : 10,   // 收藏数量
+    actionList
   },
 
   /**

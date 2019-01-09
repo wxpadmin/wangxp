@@ -15,14 +15,14 @@
   <!-- 添加商品图片 -->
   <view class='addimage'>
     <view class='deleteImg' wx:for='{{imgList}}'>
-      <image src='{{item}}' class='add' bindlongpress="DeleteImg"></image>
-      <view class='deletewrap' wx:if="{{deleteimg}}" catchtap="Delete">
+      <image src='{{item}}' class='add'></image>
+      <view class='deletewrap' catchtap="Delete">
         <image src='../../assets/images/delete.png' data-num="{{index}}" class='delete'></image>
       </view>
     </view>
     
-    <view wx:if="{{addimage}}" class='addimagebg'>
-      <image src='../../assets/images/add.png'bindtap='AddImage'></image>
+    <view wx:if="{{addimage}}" class='addimagebg' bindtap='AddImage'>
+      <image src='../../assets/images/add.png'></image>
     </view>
   </view>
 
