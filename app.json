@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/my/my",
-    "pages/issue/issue",
-    "pages/login/login",
     "pages/index/index",
+    "pages/issue/issue",
+    "pages/my/my",
+    "pages/login/login",
     "pages/register/register",
     "components/popup/popup",
     "pages/error/error",
@@ -16,14 +16,15 @@
     "onReachBottomDistance": ""
   },
   "tabBar": {
-    "selectedColor": "yellowgreen",
+    "color" :"#666666",
+    "selectedColor": "#DF250C",
     "borderStyle" : "white",
-    "backgroundColor": "white",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath" : "./assets/images/syicon.png",
-        "selectedIconPath" : "./assets/images/syiconselect.png",
+        "iconPath" : "./assets/images/homepage.png",
+        "selectedIconPath" : "./assets/images/homepageselect.png",
         "text": "首页"
       },
       {

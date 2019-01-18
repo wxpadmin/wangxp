@@ -1,49 +1,48 @@
-<!--index.wxml-->
-<view>
-  <view class="header">
+<view class='wrap'>
+  <!-- 顶部搜索 -->
+  <view class='header'>
+    <input placeholder='输入您想搜索的关键字' placeholder-style='font-size : 32rpx;color : rgb(153,153,153)' type='text' maxlength='10' confirm-type	="search" bindconfirm="SearchProduct"></input>
     <image src="../../assets/images/search.png" class="search"></image>
-    <input type="text" placeholder='搜索' placeholder-class="headerinputclass"/>
-    <!-- <image src="../../assets/images/apply.png" class='apply'></image> -->
   </view>
-
+  <!-- 中部导航 -->
   <view class='scrollview'>
-    <scroll-view class='scrollwrap' scroll-x>
-      <view class="scroll-view-item {{clickitemstyle == index ? 'pink' : ''}}"  wx:for="{{scrollitem}}" id="{{index}}" catchtap='chooseitem'>{{item}}</view>
-    </scroll-view>
-  </view>
-  
-
-
-  <view class='content'>
-    <view class='con_item' catchtap='GoDetail'>
-      <view class='con_item_user'>
-        <!-- <image src='../../assets/images/avatarUrl.png'></image> -->
-        <view>
-          <text class='name'>女装童装一手货源厂家直销</text>
-          <text class='area'>南京市</text>
+      <scroll-view class='scrollwrap' scroll-x>
+        <view class="scroll-view-item {{clickitemstyle == index ? 'selectitem' : ''}}"  wx:for="{{scrollitem}}" id="{{index}}" catchtap='chooseitem'>{{item}}</view>
+      </scroll-view>
+    </view>
+    <!-- 商品展示 -->
+    <view class='productstyle'>
+      <view class='product' catchtap='GoDetail'>
+        <view class='productheader'>
+          <view class='productheader_left'>
+            <image class='avatar' src='../../assets/images/beauty.jpg'></image>
+            <text>精选女装</text>
+            <image class='certification' src='../../assets/images/homepagecertification.png'></image>
+            <image class='member' src='../../assets/images/member.png'></image>
+          </view>
+          <view class='productheader_right'>
+            <text>￥</text>
+            <text>50-500</text>
+          </view>
         </view>
-      </view>
-      <view class='con_item_commodity'>
-        <scroll-view class='scrollwrapdata' scroll-x>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-          <image class='product' src='../../assets/images/beauty.jpg'></image>
-        </scroll-view>
-        <view class='productdirect'>
-        哈哈哈哈哈哈,这是商品描述
-      </view>
+        <view class='producttitle'>
+          女装童装一手货源厂家直销
+        </view>
+        <view class='productdiscribe'>
+          2018冬季新款chic网红同款气质粗毛线麻花复古修身针织毛衣开衫短款小衫外套
+        </view>
+
+        <view class='productpic'>
+          <image src='../../assets/images/beauty.jpg'></image>
+          <image src='../../assets/images/beauty.jpg'></image>
+          <image src='../../assets/images/beauty.jpg'></image>
+        </view>
+
+        <view class='productaddress'>
+          <image src='../../assets/images/chooseaddress.png'></image>
+          <text>北京.西单明珠商场3B-3</text>
+        </view>
+
       </view>
     </view>
-
-
-
-
-  </view>
 </view>

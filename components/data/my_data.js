@@ -25,5 +25,9 @@ export const actionList = [
   {
     'name': '留言建议',
     'url': '../../assets/images/service.png'
+  },
+  {
+    "name" : '退出登录',
+    'url': '../../assets/images/logout.png'
   }
 ]

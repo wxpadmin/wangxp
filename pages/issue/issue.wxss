@@ -43,7 +43,7 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap : wrap;
-  margin-bottom: 166rpx;
+  margin-bottom: 80rpx;
 }
 
 .deleteImg:nth-of-type(3n-1){

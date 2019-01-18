@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+import { Request } from '../../components/js/commmon.js'
 const app = getApp()
 
 Page({
@@ -16,14 +17,17 @@ Page({
         '家居',
         '虚拟物品',
         '其他'
-      ]
+      ],
   },
   chooseitem (e) {
     this.setData({
-      clickitemstyle : e.target.id
+      clickitemstyle: e.target.id
     })
+    this.SearchItem()
   },
 
+
+  //   跳详情
   GoDetail : function () {
     wx.navigateTo({
       url: '/pages/detail/detail',
@@ -33,8 +37,30 @@ Page({
   },
 
 
+  // 搜索
+  SearchProduct : function (e) {
+    let inputvalue = e.detail.value
+    Request('Get', '/wxhy/login/register', { abc: inputvalue},(res)=>{
+      console.log(res)
+    },(err)=>{
+      console.log(err)
+    })
+  },
+
+
+  SearchItem : function () {
+    let id = this.data.clickitemstyle
+    Request('Get', '/wxhy/login/register', { abc: this.data.scrollitem[id] }, (res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
+    })
+  },
+
+
+
   onLoad: function () {
-    
+    this.SearchItem()
   },
 
   onReachBottom: function () {
