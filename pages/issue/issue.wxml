@@ -1,84 +1,85 @@
 <view class='wrap'>
   <view class='header'>商品标题 最多12字</view>
-
-  <!-- 添加商品标题 -->
-  <view class='title'>
-    <input maxlength='12' placeholder='加个商品标题吧~' placeholder-style="color:rgb(153,153,153);font-size:32rpx" />
-  </view>
-
-  <!-- 添加商品描述 -->
-  <view class='discribe'>
-    <textarea maxlength='60' placeholder='添加您的商品描述吧~' placeholder-style="color:rgb(203,203,203);font-size:28rpx" />
-  </view>
-
-
-  <!-- 添加商品图片 -->
-  <view class='addimage'>
-    <view class='deleteImg' wx:for='{{imgList}}'>
-      <image src='{{item}}' class='add'></image>
-      <view class='deletewrap' catchtap="Delete">
-        <image src='../../assets/images/delete.png' data-num="{{index}}" class='delete'></image>
-      </view>
+  <form bindsubmit="SubmitForm">
+    <!-- 添加商品标题 -->
+    <view class='title'>
+      <input maxlength='12' placeholder='加个商品标题吧~' placeholder-style="color:rgb(153,153,153);font-size:32rpx" name="title" />
     </view>
-    
-    <view wx:if="{{addimage}}" class='addimagebg' bindtap='AddImage'>
-      <image src='../../assets/images/add.png'></image>
-    </view>
-  </view>
 
-
-
-  <!-- 店铺地址 -->
-    <view class='address'>
-      <view class='addresswrap'>
-        <image  wx:if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
-        <view class='chooseadd' wx:else>
-          <image src='../../assets/images/chooseaddress.png'></image>
-          <view>{{address}}</view>
-          <image class='deleteaddress' src='../../assets/images/deleteaddress.png' catchtap='DeleteAddress'></image>
-        </view>
-      </view>
+    <!-- 添加商品描述 -->
+    <view class='discribe'>
+      <textarea maxlength='60' placeholder='添加您的商品描述吧~' placeholder-style="color:rgb(203,203,203);font-size:28rpx" bindblur="TextAreaContent"/>
     </view>
 
 
-
-    <!-- 详细信息 -->
-    <view class='detail'>
-    <!-- 分类 -->
-      <view class='classify'>
-        <view class='leftside'>
-          <image src='../../assets/images/classify.png'></image>
-          <text>分类</text>
-        </view>
-        <view class='rightside'>
-          <picker range="{{classifyarr}}" value="3" bindchange="ChooseType">
-            <text class='choosetype'>{{classifitem}}</text>
-            <image class='choosetypearrow' src='../../assets/images/choosetype.png'></image>
-          </picker>
+    <!-- 添加商品图片 -->
+    <view class='addimage'>
+      <view class='deleteImg' wx:for='{{imgList}}'>
+        <image src='{{item}}' class='add' data-index="{{index}}" catchtap='PreviewImage'></image>
+        <view class='deletewrap' catchtap="Delete">
+          <image src='../../assets/images/delete.png' data-num="{{index}}" class='delete'></image>
         </view>
       </view>
+      
+      <view wx:if="{{addimage}}" class='addimagebg' bindtap='AddImage'>
+        <image src='../../assets/images/add.png'></image>
+      </view>
+    </view>
 
-    <!-- 价位 -->
-      <view class='price'>
-        <view class='leftside'>
-          <image src='../../assets/images/price.png'></image>
-          <text>价位</text>
-        </view>
-        <view class='rightside'>
-          <view class="minprice {{minchangeprice ? 'changeprice' : 'notchangeprice'}}">
-            <text>￥</text>
-            <input type='number' data-index="1" bindfocus="ChangePrice" bindblur='ChangedPrice'/>
+    <!-- 店铺地址 -->
+      <view class='address'>
+        <view class='addresswrap'>
+          <image  wx:if="{{!address}}" src='../../assets/images/place.png' class='nochooseaddress' catchtap='ChooseAddress'></image>
+          <view class='chooseadd' wx:else>
+            <image src='../../assets/images/chooseaddress.png'></image>
+            <view>{{address}}</view>
+            <image class='deleteaddress' src='../../assets/images/deleteaddress.png' catchtap='DeleteAddress'></image>
           </view>
-          <text class='priceicon'>~</text>
-          <view class="maxprice {{maxchangeprice ? 'changeprice' : 'notchangeprice'}}">
-            <text>￥</text>
-            <input type='number' data-index="2"  bindfocus="ChangePrice" bindblur='ChangedPrice'/>
+        </view>
+      </view>
+
+
+
+      <!-- 详细信息 -->
+      <view class='detail'>
+      <!-- 分类 -->
+        <view class='classify'>
+          <view class='leftside'>
+            <image src='../../assets/images/classify.png'></image>
+            <text>分类</text>
+          </view>
+          <view class='rightside'>
+            <picker name="classify" range="{{classifyarr}}" bindchange="ChooseType">
+              <text class='choosetype' name="classifitem">{{classifitem}}</text>
+              <image class='choosetypearrow' src='../../assets/images/choosetype.png'></image>
+            </picker>
           </view>
         </view>
 
+      <!-- 价位 -->
+        <view class='price'>
+          <view class='leftside'>
+            <image src='../../assets/images/price.png'></image>
+            <text>价位</text>
+          </view>
+          <view class='rightside'>
+            <view class="minprice {{minchangeprice ? 'changeprice' : 'notchangeprice'}}">
+              <text>￥</text>
+              <input type='number' data-index="1" bindfocus="ChangePrice" bindblur='ChangedPrice' name="minprice"/>
+            </view>
+            <text class='priceicon'>~</text>
+            <view class="maxprice {{maxchangeprice ? 'changeprice' : 'notchangeprice'}}">
+              <text>￥</text>
+              <input type='number' data-index="2"  bindfocus="ChangePrice" bindblur='ChangedPrice' name="maxprice"/>
+            </view>
+          </view>
 
 
+
+        </view>
       </view>
-
-    </view>
+      <view class='btnwrap'>
+        <button class='submitbutton' form-type="submit">发布</button>
+      </view>
+    </form>
 </view>

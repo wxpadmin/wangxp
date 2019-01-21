@@ -235,7 +235,7 @@ page{
 }
 .productpic>image{
   height: 204rpx;
-  border-radius: 10rpx
+  border-radius: 10rpx;
 }
 .productpic>image:nth-of-type(2){
   margin:0 40rpx

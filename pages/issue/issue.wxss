@@ -17,7 +17,7 @@
 .title{
   width: 100%;
   padding: 28rpx 32rpx 40rpx;
-  box-sizing: border-box 
+  box-sizing: border-box
 }
 .title>input{
   font-size: 32rpx
@@ -236,4 +236,16 @@
 }
 .changeprice>input{
   color: rgb(223, 37, 12);
+}
+
+.btnwrap{
+  padding: 0 30rpx;
+  width: 100%;
+  box-sizing: border-box
+}
+
+.submitbutton{
+  background: rgb(223, 37, 12);
+  margin-top: 50rpx;
+  color: #fff
 }

@@ -28,6 +28,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      textareacontent : '',
       imgList : [],  // 上传商品图列表
       addimage : true,   // 是否能继续添加商品图
       address : '',      //  商家地址
@@ -58,6 +59,15 @@ Page({
       },
     })
   },
+
+  //  预览图片
+  PreviewImage : function (e) {
+    console.log(e)
+    wx.previewImage({
+      urls: [this.data.imgList[e.target.dataset.index]],
+    })
+  },
+
 
   // 选择地址
   ChooseAddress : function () {
@@ -162,6 +172,20 @@ Page({
     })
   },
 
+  //  获取商品描述信息
+  TextAreaContent : function (e) {
+    this.setData({
+      textareacontent : e.detail.value
+    })
+  },
+
+
+
+
+  // 提交表单
+  SubmitForm : function (e) {
+
+  }
 
   
 })

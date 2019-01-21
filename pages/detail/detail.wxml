@@ -1,10 +1,66 @@
 <!-- detail 商品详情 -->
-<view>
-  <text class='title'>baby家女装招代理加盟</text>
-  <view class='commoditydetail'>
-    <text>baby家女装招代理加盟baby家女装招代理加盟baby家女装招代理加盟baby家女装招代理加盟baby家女装招代理加盟baby家女装招代理加盟</text>
-  
+<view class='wrap'>
+  <view class='product'>
+    <view class='productheader'>
+      <view class='productheader_left'>
+        <image class='avatar' src='../../assets/images/beauty.jpg'></image>
+        <text>精选女装</text>
+        <image class='certification' src='../../assets/images/homepagecertification.png'></image>
+        <image class='member' src='../../assets/images/member.png'></image>
+      </view>
+    </view>
+
+    <view class='pricecollectwrap'>
+      <view class='price'>
+        <text>￥</text>
+        <text>50-500</text>
+      </view>
+      <image wx:if="{{!iscollect}}" class='collect' src='../../assets/images/notcollection.png' catchtap='Collect'></image>
+      <image wx:else class='collect' src='../../assets/images/collection.png' catchtap='Collect'></image>
+    </view>
+
+
+    <view class='producttitle'>
+      女装童装一手货源厂家直销
+    </view>
+
+    <view class='productdiscribe'>
+      2018秋冬新款chic网红同款气质粗毛线麻花复古修身针织毛衣开衫短款小衫外套
+    </view>
+
+
+    <view class='productswiper'>
+      <swiper
+        indicator-dots
+        autoplay
+        indicator-color="rgb(244, 241, 240)"
+        indicator-active-color="rgb(223, 37, 12)"
+      >
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image class='swiper-image' src='{{item}}'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+
+    </view>
+
   </view>
 
+  <view class='relation'>
+    <view class='relation_address'>
+      <text>联系地址</text>
+      <text>北京.西单明珠商场3B-3</text>
+    </view>
+    <view class='relation_phone'>
+      <view class='relation_phone_wrap'>
+        <text>联系电话</text>
+        <text>***********</text>
+      </view>
+      <view class='relation_phone_btn'>
+        点击获取
+      </view>
+    </view>
+  </view>
 
 </view>
